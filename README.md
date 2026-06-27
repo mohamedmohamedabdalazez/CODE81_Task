@@ -157,10 +157,4 @@ src/
 ├── LibraryMS.Application/      ← Services, DTOs, ViewModels
 ├── LibraryMS.Infrastructure/   ← DbContext, EF config, migrations
 └── LibraryMS.API/              ← Controllers, Middleware, Program.cs
-docs/
-├── ERD.md
-├── sql/
-│   ├── schema.sql              ← Generated from EF migration
-│   └── seed.sql                ← Sample data
-└── superpowers/specs/          ← Design specification
 ```
