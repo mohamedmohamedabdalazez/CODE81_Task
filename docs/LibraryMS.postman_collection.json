@@ -1,0 +1,180 @@
+{
+  "info": {
+    "name": "Library Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Complete API collection for the Library Management System. Set the 'baseUrl' variable and choose an auth preset."
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5000" },
+    { "key": "adminAuth", "value": "YWRtaW4xOkFkbWluQDEyMw==", "description": "admin1:Admin@123" },
+    { "key": "librarianAuth", "value": "bGlicmFyaWFuMTpMaWJyYXJpYW5AMTIz", "description": "librarian1:Librarian@123" },
+    { "key": "staffAuth", "value": "c3RhZmYxOlN0YWZmQDEyMw==", "description": "staff1:Staff@123" }
+  ],
+  "item": [
+    {
+      "name": "Books",
+      "item": [
+        {
+          "name": "Get All Books",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/books",
+            "header": [{ "key": "Authorization", "value": "Basic {{adminAuth}}" }] }
+        },
+        {
+          "name": "Get Book by ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/books/1",
+            "header": [{ "key": "Authorization", "value": "Basic {{adminAuth}}" }] }
+        },
+        {
+          "name": "Search Books",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/books/search?name=clean&author=&category=",
+            "header": [{ "key": "Authorization", "value": "Basic {{adminAuth}}" }] }
+        },
+        {
+          "name": "Get Books by Status (Available)",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/books/by-status?status=Available",
+            "header": [{ "key": "Authorization", "value": "Basic {{adminAuth}}" }] }
+        },
+        {
+          "name": "Get Books by Status (Borrowed)",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/books/by-status?status=Borrowed",
+            "header": [{ "key": "Authorization", "value": "Basic {{adminAuth}}" }] }
+        },
+        {
+          "name": "Create Book",
+          "request": { "method": "POST", "url": "{{baseUrl}}/api/books",
+            "header": [
+              { "key": "Authorization", "value": "Basic {{librarianAuth}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"title\": \"Domain-Driven Design\",\n  \"isbn\": \"978-0321125217\",\n  \"edition\": \"1st\",\n  \"language\": \"English\",\n  \"publicationYear\": 2003,\n  \"summary\": \"Tackling complexity in the heart of software.\",\n  \"publisherId\": 2,\n  \"authorIds\": [3],\n  \"categoryIds\": [8]\n}" }
+          }
+        },
+        {
+          "name": "Update Book",
+          "request": { "method": "PUT", "url": "{{baseUrl}}/api/books/1",
+            "header": [
+              { "key": "Authorization", "value": "Basic {{librarianAuth}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"title\": \"1984 (Updated)\",\n  \"isbn\": \"978-0451524935\",\n  \"edition\": \"2nd\",\n  \"language\": \"English\",\n  \"publicationYear\": 1949,\n  \"summary\": \"Updated summary.\",\n  \"publisherId\": 1,\n  \"authorIds\": [1],\n  \"categoryIds\": [7]\n}" }
+          }
+        },
+        {
+          "name": "Delete Book (Admin)",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/books/12",
+            "header": [{ "key": "Authorization", "value": "Basic {{adminAuth}}" }] }
+        },
+        {
+          "name": "Upload Cover Image",
+          "request": { "method": "POST", "url": "{{baseUrl}}/api/books/2/cover",
+            "header": [{ "key": "Authorization", "value": "Basic {{librarianAuth}}" }],
+            "body": { "mode": "formdata", "formdata": [{ "key": "file", "type": "file", "src": "" }] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Authors",
+      "item": [
+        { "name": "Get All Authors", "request": { "method": "GET", "url": "{{baseUrl}}/api/authors", "header": [{ "key": "Authorization", "value": "Basic {{adminAuth}}" }] } },
+        { "name": "Get Author by ID", "request": { "method": "GET", "url": "{{baseUrl}}/api/authors/1", "header": [{ "key": "Authorization", "value": "Basic {{adminAuth}}" }] } },
+        { "name": "Create Author", "request": { "method": "POST", "url": "{{baseUrl}}/api/authors",
+            "header": [{ "key": "Authorization", "value": "Basic {{librarianAuth}}" }, { "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"firstName\": \"Douglas\",\n  \"lastName\": \"Adams\",\n  \"bio\": \"Author of The Hitchhiker's Guide to the Galaxy.\"\n}" }
+          }
+        },
+        { "name": "Update Author", "request": { "method": "PUT", "url": "{{baseUrl}}/api/authors/1",
+            "header": [{ "key": "Authorization", "value": "Basic {{librarianAuth}}" }, { "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"firstName\": \"George\",\n  \"lastName\": \"Orwell\",\n  \"bio\": \"Updated bio.\"\n}" }
+          }
+        },
+        { "name": "Delete Author (Admin)", "request": { "method": "DELETE", "url": "{{baseUrl}}/api/authors/10", "header": [{ "key": "Authorization", "value": "Basic {{adminAuth}}" }] } }
+      ]
+    },
+    {
+      "name": "Publishers",
+      "item": [
+        { "name": "Get All Publishers", "request": { "method": "GET", "url": "{{baseUrl}}/api/publishers", "header": [{ "key": "Authorization", "value": "Basic {{adminAuth}}" }] } },
+        { "name": "Create Publisher", "request": { "method": "POST", "url": "{{baseUrl}}/api/publishers",
+            "header": [{ "key": "Authorization", "value": "Basic {{librarianAuth}}" }, { "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Manning Publications\",\n  \"address\": \"Shelter Island, NY\",\n  \"website\": \"https://manning.com\"\n}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Categories",
+      "item": [
+        { "name": "Get All Categories", "request": { "method": "GET", "url": "{{baseUrl}}/api/categories", "header": [{ "key": "Authorization", "value": "Basic {{adminAuth}}" }] } },
+        { "name": "Create Top-Level Category", "request": { "method": "POST", "url": "{{baseUrl}}/api/categories",
+            "header": [{ "key": "Authorization", "value": "Basic {{librarianAuth}}" }, { "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"History\",\n  \"parentCategoryId\": null\n}" }
+          }
+        },
+        { "name": "Create Sub-Category", "request": { "method": "POST", "url": "{{baseUrl}}/api/categories",
+            "header": [{ "key": "Authorization", "value": "Basic {{librarianAuth}}" }, { "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Ancient History\",\n  \"parentCategoryId\": 1\n}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Members",
+      "item": [
+        { "name": "Get All Members", "request": { "method": "GET", "url": "{{baseUrl}}/api/members", "header": [{ "key": "Authorization", "value": "Basic {{librarianAuth}}" }] } },
+        { "name": "Get Member by ID", "request": { "method": "GET", "url": "{{baseUrl}}/api/members/1", "header": [{ "key": "Authorization", "value": "Basic {{librarianAuth}}" }] } },
+        { "name": "Create Member", "request": { "method": "POST", "url": "{{baseUrl}}/api/members",
+            "header": [{ "key": "Authorization", "value": "Basic {{librarianAuth}}" }, { "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"firstName\": \"Alice\",\n  \"lastName\": \"Walker\",\n  \"email\": \"alice.walker@email.com\",\n  \"phone\": \"555-0201\",\n  \"membershipDate\": \"2026-06-26T00:00:00Z\"\n}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "System Users",
+      "item": [
+        { "name": "Get All Users (Admin)", "request": { "method": "GET", "url": "{{baseUrl}}/api/users", "header": [{ "key": "Authorization", "value": "Basic {{adminAuth}}" }] } },
+        { "name": "Create User (Admin)", "request": { "method": "POST", "url": "{{baseUrl}}/api/users",
+            "header": [{ "key": "Authorization", "value": "Basic {{adminAuth}}" }, { "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"username\": \"newlibrarian\",\n  \"password\": \"Secure@456\",\n  \"role\": 1,\n  \"fullName\": \"New Librarian\",\n  \"email\": \"newlib@library.com\"\n}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Borrowing",
+      "item": [
+        { "name": "Borrow a Book", "request": { "method": "POST", "url": "{{baseUrl}}/api/borrowing/borrow",
+            "header": [{ "key": "Authorization", "value": "Basic {{staffAuth}}" }, { "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"bookId\": 2,\n  \"memberId\": 1\n}" }
+          }
+        },
+        { "name": "Return a Book", "request": { "method": "POST", "url": "{{baseUrl}}/api/borrowing/return/1",
+            "header": [{ "key": "Authorization", "value": "Basic {{staffAuth}}" }]
+          }
+        },
+        { "name": "Get All Transactions", "request": { "method": "GET", "url": "{{baseUrl}}/api/borrowing/transactions", "header": [{ "key": "Authorization", "value": "Basic {{librarianAuth}}" }] } },
+        { "name": "Get Member History", "request": { "method": "GET", "url": "{{baseUrl}}/api/borrowing/member/1", "header": [{ "key": "Authorization", "value": "Basic {{librarianAuth}}" }] } }
+      ]
+    },
+    {
+      "name": "Activity Logs",
+      "item": [
+        { "name": "Get All Logs", "request": { "method": "GET", "url": "{{baseUrl}}/api/activitylogs", "header": [{ "key": "Authorization", "value": "Basic {{librarianAuth}}" }] } },
+        { "name": "Get Logs by User (Admin)", "request": { "method": "GET", "url": "{{baseUrl}}/api/activitylogs/user/1", "header": [{ "key": "Authorization", "value": "Basic {{adminAuth}}" }] } }
+      ]
+    },
+    {
+      "name": "Auth Error Scenarios",
+      "item": [
+        { "name": "No Auth Header → 401", "request": { "method": "GET", "url": "{{baseUrl}}/api/books" } },
+        { "name": "Wrong Password → 401", "request": { "method": "GET", "url": "{{baseUrl}}/api/books",
+            "header": [{ "key": "Authorization", "value": "Basic d3Jvbmc6d3Jvbmc=" }] }
+        },
+        { "name": "Staff tries Members → 403", "request": { "method": "GET", "url": "{{baseUrl}}/api/members",
+            "header": [{ "key": "Authorization", "value": "Basic {{staffAuth}}" }] }
+        }
+      ]
+    }
+  ]
+}

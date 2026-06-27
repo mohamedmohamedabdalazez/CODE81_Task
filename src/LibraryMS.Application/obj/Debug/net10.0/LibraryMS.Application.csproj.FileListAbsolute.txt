@@ -1,0 +1,15 @@
+/run/media/moturk/New Volume/CODE81_Task/src/LibraryMS.Application/bin/Debug/net10.0/LibraryMS.Application.deps.json
+/run/media/moturk/New Volume/CODE81_Task/src/LibraryMS.Application/bin/Debug/net10.0/LibraryMS.Application.dll
+/run/media/moturk/New Volume/CODE81_Task/src/LibraryMS.Application/bin/Debug/net10.0/LibraryMS.Application.pdb
+/run/media/moturk/New Volume/CODE81_Task/src/LibraryMS.Application/bin/Debug/net10.0/LibraryMS.Domain.dll
+/run/media/moturk/New Volume/CODE81_Task/src/LibraryMS.Application/bin/Debug/net10.0/LibraryMS.Domain.pdb
+/run/media/moturk/New Volume/CODE81_Task/src/LibraryMS.Application/obj/Debug/net10.0/LibraryMS.Application.csproj.AssemblyReference.cache
+/run/media/moturk/New Volume/CODE81_Task/src/LibraryMS.Application/obj/Debug/net10.0/LibraryMS.Application.GeneratedMSBuildEditorConfig.editorconfig
+/run/media/moturk/New Volume/CODE81_Task/src/LibraryMS.Application/obj/Debug/net10.0/LibraryMS.Application.AssemblyInfoInputs.cache
+/run/media/moturk/New Volume/CODE81_Task/src/LibraryMS.Application/obj/Debug/net10.0/LibraryMS.Application.AssemblyInfo.cs
+/run/media/moturk/New Volume/CODE81_Task/src/LibraryMS.Application/obj/Debug/net10.0/LibraryMS.Application.csproj.CoreCompileInputs.cache
+/run/media/moturk/New Volume/CODE81_Task/src/LibraryMS.Application/obj/Debug/net10.0/LibraryM.49C662E1.Up2Date
+/run/media/moturk/New Volume/CODE81_Task/src/LibraryMS.Application/obj/Debug/net10.0/LibraryMS.Application.dll
+/run/media/moturk/New Volume/CODE81_Task/src/LibraryMS.Application/obj/Debug/net10.0/refint/LibraryMS.Application.dll
+/run/media/moturk/New Volume/CODE81_Task/src/LibraryMS.Application/obj/Debug/net10.0/LibraryMS.Application.pdb
+/run/media/moturk/New Volume/CODE81_Task/src/LibraryMS.Application/obj/Debug/net10.0/ref/LibraryMS.Application.dll
